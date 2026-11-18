@@ -1,0 +1,38 @@
+schema: spec-driven
+
+context: |
+  Gestor de Finanzas Personales Móvil «Local-First» para Android e iOS en Kotlin Multiplatform (KMP) y Compose Multiplatform (CMP).
+  Estándares de ingeniería bancaria estrictos:
+  1. Prohibición absoluta de Float/Double/BigDecimal. Todo monto usa Money(minor: Long, CurrencyCode) y porcentajes BasisPoints(Int).
+  2. Redondeo bancario Half-Even exacto.
+  3. Borrado lógico universal (status = ACTIVE | INACTIVE | DELETED); prohibido DELETE físico en tablas de negocio.
+  4. Inmutabilidad de ciclos CLOSED; ajustes mediante adjusts_transaction_id en ciclo OPEN.
+  5. Inyección obligatoria de ClockProvider, TimeZoneProvider e IdGenerator (UUIDv7).
+  6. Arquitectura Clean Architecture + DDD con Shared Kernel físico en :core:database (SQLDelight + SQLCipher) y ACL en :integration.
+  7. Presentación MVI en CMP (isSaveEnabled nunca depende del veredicto presupuestal).
+  8. Consulta obligatoria de docs/agents/ (architecture.md, domain-rules.md, deviations.md, etc.).
+  Escribir los artefactos y especificaciones en Español.
+
+rules:
+  proposal:
+    - Explicar siempre la motivación y el alcance exacto (In Scope / Out of Scope)
+    - Referenciar los ADRs pertinentes de docs/adr/
+  specs:
+    - Incluir escenarios BDD ejecutables con formato Given/When/Then para Kotest BehaviorSpec
+    - Citar invariantes de docs/agents/domain-rules.md
+  design:
+    - Especificar contratos de interfaz, entidades y puertos
+    - Incluir el impacto en rendimiento y memoria
+  tasks:
+    - Tareas atómicas con criterios de aceptación verificables
+    - Incluir comando de verificación con Gradle para cada bloque
+
+operations:
+  apply:
+    guidance:
+      - Seguir ciclo Red-Green-Refactor
+      - Validar con Konsist y pruebas unitarias antes de finalizar
+      - Prohibido TODO, placeholders o fragmentos de código omitidos
+  archive:
+    guidance:
+      - Verificar que la suite de pruebas y Konsist estén en verde antes de archivar

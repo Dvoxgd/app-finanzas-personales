@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+build/
+**/build/
+gradle-app.setting
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Android / Local Properties (SDK paths locales)
+local.properties
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/deploymentTargetSelector.xml
+*.hprof
+
+# Kotlin Multiplatform
+.kotlin/
+kotlin-js-store/
+
+# Apple / iOS / Xcode
+iosApp/iosApp.xcworkspace/xcuserdata/
+iosApp/iosApp.xcodeproj/project.xcworkspace/xcuserdata/
+iosApp/iosApp.xcodeproj/xcuserdata/
+DerivedData/
+.build/
+*.mode1v3
+*.mode2v3
+*.moved-builder
+*.pbxuser
+*.perspectivev3
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Log files & Secrets
+*.log
+*.keystore
+*.jks
+*.fpbk
